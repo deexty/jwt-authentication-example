@@ -1,0 +1,61 @@
+{
+  "env": {
+    "node": true, // Suporte para ambiente Node.js
+    "es2021": true // Suporte para ES2021
+  },
+  "extends": [
+    "eslint:recommended", // Regras recomendadas pelo ESLint
+    "plugin:@typescript-eslint/recommended", // Regras recomendadas para TypeScript
+    "prettier" // Integração com Prettier para formatação
+  ],
+  "parser": "@typescript-eslint/parser", // Parser que entende TypeScript
+  "parserOptions": {
+    "ecmaVersion": "latest", // Suporte para a versão mais recente do ECMAScript
+    "sourceType": "module" // Suporte para módulos ES6 (import/export)
+  },
+  "plugins": [
+    "@typescript-eslint", // Plugin para fornecer regras do TypeScript
+    "prettier" // Plugin para Prettier
+  ],
+  "rules": {
+    // Regras TypeScript
+    "@typescript-eslint/no-unused-vars": "warn", // Avisa sobre variáveis não utilizadas
+    "@typescript-eslint/no-explicit-any": "warn", // Evita o uso de `any` sem necessidade
+    "@typescript-eslint/explicit-function-return-type": "off", // Não força definição explícita do tipo de retorno em funções
+    "@typescript-eslint/explicit-module-boundary-types": "off", // Não força retorno explícito em funções públicas
+    "@typescript-eslint/no-inferrable-types": "warn", // Evita redundância ao declarar tipos que o TypeScript pode inferir automaticamente
+    "@typescript-eslint/consistent-type-definitions": ["warn", "interface"], // Prefere `interface` ao invés de `type` para definições de objetos
+    "@typescript-eslint/prefer-optional-chain": "warn", // Sugere o uso de encadeamento opcional ao invés de verificações manuais
+    "@typescript-eslint/no-empty-function": "warn", // Evita funções vazias
+    "@typescript-eslint/no-namespace": "error", // Evita o uso de `namespace`, preferindo módulos ES6
+    "@typescript-eslint/ban-ts-comment": "warn", // Evita o uso de comentários `@ts-ignore` sem explicação
+    "@typescript-eslint/no-floating-promises": "error", // Evita Promises que não são tratadas adequadamente
+    "@typescript-eslint/no-var-requires": "error", // Evita o uso de `require`, preferindo `import`
+    "@typescript-eslint/consistent-type-imports": "warn", // Sugere o uso consistente de imports de tipo (`import type`)
+
+    // Regras de qualidade e boas práticas
+    "prefer-const": "warn", // Sugere o uso de `const` quando a variável não é reatribuída
+    "no-var": "error", // Bloqueia o uso de `var`, preferindo `let` ou `const`
+    "prefer-template": "warn", // Prefere template strings ao invés de concatenação
+    "no-console": ["warn", { "allow": ["warn", "error"] }], // Permite apenas `console.warn` e `console.error`
+    "no-empty": "warn", // Avisa sobre blocos vazios, como if ou loops
+    "curly": "warn", // Obriga o uso de chaves `{}` para condicionais
+    "eqeqeq": ["warn", "always"], // Enforce uso de `===` e `!==` ao invés de `==` e `!=`
+
+    // Regras de manutenção de código
+    "complexity": ["warn", { "max": 10 }], // Avisa quando a complexidade ciclomática de uma função excede 10
+    "max-lines": ["warn", { "max": 300, "skipComments": true }], // Limita o número de linhas de código por arquivo
+    "max-depth": ["warn", 4], // Limita a profundidade de aninhamento de blocos de código
+    "max-params": ["warn", 4], // Limita o número de parâmetros por função
+    "max-nested-callbacks": ["warn", 3], // Limita o aninhamento de callbacks a 3 níveis
+    "max-statements": ["warn", 15], // Limita o número de statements por função a 15
+    "no-duplicate-imports": "error", // Evita múltiplos imports do mesmo módulo
+    "no-else-return": "warn", // Evita `else` desnecessários após `return`
+    "no-useless-constructor": "warn", // Avisa sobre construtores vazios ou sem necessidade
+    "prefer-arrow-callback": "warn", // Prefere o uso de funções arrow para callbacks
+    "no-magic-numbers": ["warn", { "ignore": [0, 1, -1] }], // Avisa sobre números mágicos no código, exceto 0, 1 e -1
+
+    // Regras de formatação e estilo (Prettier)
+    "prettier/prettier": "warn" // Integração com Prettier para garantir formatação consistente
+  }
+}
